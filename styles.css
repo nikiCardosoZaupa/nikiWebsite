@@ -1,0 +1,31 @@
+body {
+    background: rgb(110, 125, 157);
+    
+    
+
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: rgb(62, 77, 109);
+    font-family: Helvetica, monospace;
+    font-size: large;
+    color: rgb(9, 9, 38);
+
+    padding: 50px 30px;
+}
+
+p {
+    font-family: monospace;
+    font-size:large;
+    color: rgb(0, 0, 0);
+    padding: 30px 50px 0px 50px;
+}
+h2 {
+    background:rgba(156, 127, 196, 0.538);
+    font-family: monospace;
+    font-size: 30px;
+    color:rgb(9, 9, 38);
+    margin: 30px 0px 30px 70px;
+}
+

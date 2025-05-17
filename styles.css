@@ -29,3 +29,12 @@ h2 {
     margin: 30px 0px 30px 70px;
 }
 
+figcaption {
+  word-break: break-word;  
+  white-space: normal;
+  line-height: 1.4;
+  margin-top: 5px;
+  text-align: center;   
+}
+
+

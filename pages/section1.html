@@ -19,62 +19,76 @@
             }
 
             .section.images1 {
-
             display: flex;
             flex-direction: row;
-            padding: 0px 0px 0px 0px;
+            gap: 60px; 
+            padding: 70px 0 0 80px;
             font-family: monospace;
-            gap: 200px;
-            
-            
-           
-        
+            flex-wrap: wrap; 
             }
 
-            .images1 figure img {
-            
-            
-            width: 230px;
-            position: relative;
-            margin: 0px;
-        
-            
+            .section.images1 figure {
+            width: 500px; 
+            margin: 0;
+            text-align: center; 
             }
 
-             .section.images2 {
+            .section.images1 figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            }
 
+            .section.images1 figcaption {
+            margin-top: 8px;
+            word-break: break-word;  
+            white-space: normal;     
+            line-height: 1.4;
+            }
+
+            .section.images2 {
             display: flex;
             flex-direction: row;
-            padding: 70px 0px 0px 0px;
+            gap: 80px; 
+            padding: 70px 0 0 80px;
             font-family: monospace;
-            
-            
-           
-        
+            flex-wrap: wrap; 
             }
 
-             .images2 figure img {
-            
-           
-            width: 350px;
-            position: relative;
-            margin: 0px;
-            
+            .section.images2 figure {
+            width: 500px; 
+            margin: 0;
+            text-align: center; 
+            }
+
+            .section.images2 figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            }
+
+            .section.images2 figcaption {
+            margin-top: 8px;
+            word-break: break-word;  
+            white-space: normal;     
+            line-height: 1.4;
             }
 
             .section.images3 {
             display: flex;
             flex-direction: row;
-            gap: 30px; /* optional: consistent spacing between figures */
+            gap: 30px; 
             padding: 70px 0 0 0;
             font-family: monospace;
-            flex-wrap: wrap; /* optional: allows wrapping on smaller screens */
+            flex-wrap: wrap; 
             }
 
             .section.images3 figure {
-            width: 350px; /* match image width */
+            width: 350px; 
             margin: 0;
-            text-align: center; /* center the caption text */
+            text-align: center; 
             }
 
             .section.images3 figure img {
@@ -86,9 +100,66 @@
 
             .section.images3 figcaption {
             margin-top: 8px;
-            word-break: break-word;  /* important: forces long words to break */
-            white-space: normal;     /* ensures wrapping is allowed */
+            word-break: break-word;  
+            white-space: normal;     
             line-height: 1.4;
+            }
+
+             .section.images4 {
+            display: flex;
+            flex-direction: row;
+            gap: 70px; 
+            padding: 100px 0 0 0;
+            font-family: monospace;
+            flex-wrap: wrap; 
+            }
+
+            .section.images4 figure {
+            width: 500px; 
+            margin: 0;
+            text-align: center; 
+            }
+
+            .section.images4 figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            }
+
+            .section.images4 figcaption {
+            margin-top: 8px;
+            word-break: break-word;  
+            white-space: normal;     
+            line-height: 1.4;
+            }
+
+            .containerVid1 {
+
+            position: relative;
+            padding-bottom: 28.125%;
+            padding-right: 17.7%;
+           
+           
+            height: 0;
+            
+            }
+
+            .containerVid1 iframe {
+            position: absolute;
+            top: 0;
+            left: o;
+            width: 50%;
+            height: 100%;
+            
+            }
+
+            .grid.image figure img {
+
+                width: 1000px;
+                margin-top: 20px;
+                margin-left: 100px;
+
             }
 
 
@@ -232,15 +303,135 @@
         </section>
 
         <section>
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/watch?v=Qmu6GjNCJTU" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
+            
+            <div class="containerVid1">
+                <iframe width=100% height=100% src="https://www.youtube.com/embed/EYWOF-s6huA?si=yesJWUDRdd8qbwEW" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>                      
+                </iframe>
+            </div>
+        
         </section>
 
+        <section class="section paragraph">
+
+            <p>the sample of P. Lunula I received was around 30ml. when transferring the samples to some new medium there are some rules to keep in mind. the culture should be added in 10% increments, 
+                so 10ml of culture should be added into 100ml of medium. the medium itself should be kept at room temperature. as mentioned before, i will use 2 different types of medium, one pre-mixed by CCAP,
+                and one mixed by myself. this is the recipe I followed from CCAP in order to make my own medium (the recipe is for making 1l, but I'll instead make 1.5l so I'll multiply accordingly):
+                    <br><br><br>NaNO3 (Sodium nitrate) - 75g; 
+                    <br><br>NaH2PO4.2H2O (Sodium dihydrogen phosphate) - 5.65g
+                    <br><br>trace elements: these ase 11 chemicals that come premixed in a mediumVial - 8.88g
+                    <br><br>a vitamin mix containing Cyanocobalamin (Vitamin B12), Biotin and ThiamineHCl (Vitamin B1) - 1g
+                    </p>
+
+            <p>the culture vessel should be clear, to allow for light and also to allow me to actually assess how the culture is doing. i opted for a couple of olives jars. eventually i'll move the culture 
+                to a more appropriate vessel, but for my home experiments these will do just fine.</p>
+            
+            <p>the light cycle will be controlled for a couple of reasons: the main reason has to do with how the bioluminescence in these microalgae work. they emit the blue light only during the night. 
+                this is probably because that's when the algae rises to surface (in a normal sea setting) to come in contact with oxigen. it's a bit more complicated than that, but this bioluminescence works 
+                with 3 factors: the algae produces luciferase enzyme and luciferin molecule inside of a structure called scintillion. luciferase is produced similarly to chlorophyll, and it reacts with the luciferin 
+                whenever there's some environmental stress. when friction, for example, is applied to the dinoflagellate's cell, its membrane becomes weaker, activating a series of chemical reactions. oxygen seeps 
+                through the outer membrane of the cell, the scintillion becomes more acidic, and the luciferase accelerates the binding of luciferin with oxigen. the chemical reaction produces oxyluciferin, 
+                generating light as a bioproduct.</p>
+
+        </section>
+
+        <section class="section images4">
+            
+            <figure>
+                <img src="../images/dinosMotion.jpg" alt="motion schematic">
+                <figcaption>How day and night cycles modulate the algae's behaviour. They tend to sink to the bottom during the day, and enter a 'free flight' mode during the night. There they can absorb carbon 
+                    dioxide and, at the same time, react with oxigen when disturbed.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/biolumen_chemisty.jpg" alt="chemisty of bioluminescence">
+                <figcaption>An image from the paper <i>New Perspectives Related to the Bioluminescent System in Dinoflagellates: Pyrocystis lunula, a Case Study.</i> What's shown here is the chemistry behind
+                            the process of bioluminescence. Their explanation goes as follows: The scintillons contain the luciferin, the LCF and,in some species, LBP. The scintillons are organelles which, during dark hours,are distributed 
+                            around the periphery of the cell. A ﬂash of light is induced by an action potential along the membrane of the vacuole, trigger by a mechanical stimulus of the cell, and involving of a
+                            voltage-dependent proton channel. This produce a reduction in pH (i.e., from 8.0 to near 6.0) within the scintillons, which activates the LCF and causes the LBP to release the luciferin,
+                            making it available for oxidation by LCF. After full stimulation during the dark period, a single cell of P. lunula emits approximately 4 trillion photons, which is an order of magnitude 
+                            greater than the light emitted by Pyrodinium bahamense and L. Polyedra.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/biolumen1.jpg" alt="bioluminescence">
+            </figure>
+
+        </section>
+
+        <section class="section paragraph">
+
+            <p>i divided my sample into 2 vessels, 15ml of it in each vessel. i prepared the vessels by carving a 1/8 inch hole and covering it with a piece of cloth. this allows oxygen in while also protecting 
+                the water from any falling bacteria. eventually that piece of cloth should be substituted by some parafilm tape. the full-spectrum light is placed above and besides the vessels. if the light is 
+                too low it might overheat my cultures, killing the dinoflagellates, if it's too far up it won't give them enough light. above you can see how i configured my improvised "growing facility". <br>i 
+                thought that my method was a bit too DIY, so i was initially worried i wouldn't get much out of it, but after 2 weeks my cultures have acclimated to the light cycles, and are now thriving. when i 
+                say that they needed to acclimate themselves to the light cycles i really mean it. exhibitions do tend to take place during daylight hours, meaning that i can't have a piece that only shows it's 
+                potential only during the night. to remediate that, i tricked the algae to think that the day is night, and the night is day. because the bioluminescence is strictly linked to circadian rhythms, 
+                now the algae do emit light only during the day. i was so happy to see that my P. Lunula is growing happily, and the unique blue colour that it emits is truly fascinating.</p>
+
+            <h2> considerations</h2>
+
+            <p>these first few months have been mostly spent around caring for the Lunulas. of course I've been thinking about what actually can be done with them, but ensuring a proper environment for their 
+                growth was simply too crucial. the notion of time, or maybe we could even just call it entropy, assumes a rather different and somewhat dangerous connotation, and it forces me to think of the work 
+                holistically rather than step by step. i can't deny that often i found myself quite scared of taking some big steps (IE mixing my own medium or propagating the cultures) just because of the potential
+                implications.<br><br> this new forced prospective was something i find quite interesting. often my process was about trying small things, prototyping, failing and re-doing - and of course i consider all 
+                that fundamental, but there are also some ethical implications i cannot ignore. yes, P. Lunula is an invasive specie, yes it can become toxic for the local fauna affecting small bivalve and other 
+                smaller scavenger animals, but it is still an organism. to be totally honest, i'm not really concerned in that sense on a surface level, but the principle still remains and i shouldn't ignore it.<br><br>
+                the more i look into these algae, the more i see how the bioluminescence is the product of suffering, and how they exhaust themselves over time. this doesn't only have logistical implications (to 
+                put it briefly, there will be the need of something that will control for how long the algae will be stimulated) but obvious ethical implications too, there's an exploitation taking place. this is 
+                probably what led me to think about the work with a religious connotation too, the algae is a sacrificial lamb, perhaps catharsis? or fetish in a freudian sense?<br><br> catharsis is a word that came to my mind 
+                very often when thinking about these things, and perhaps why i chose the algae as a way to symbolise life. the blue spectrum is the one which travels the most under water, and outside of the water
+                assumes this strange and striking blue-green tone, the light to me is a sort of 'indicator' of life given that it's a primitive form of communication. i believe that this work should be paired with should
+                to further emphasize the notion of a present, living, being. i don't know if i'm clear enough, the algae needs to make itself present in the work, and by doing so that's where the celebration happens, the 
+                cathartic action of (in a way) screaming out of pain to describe the event of exploitation.<br>i'm aware that this is somewhat cruel, and i'm taking as many steps as possible to ensure that the 
+                algae are at least living in favorable conditions.</p>
+
+            <h2>triggering bioluminescence on demand</h2>
+
+            <p>while my algae is growing happily, i can focus on what to do with it. if motion triggers the light, then i figured that a system should use some kind of motion factor, as this opens up a range of 
+                possibilities. main idea at the moment revolves around constructing a grid of some sorts, and then map in some interaction that provokes the single cells in the grid to produce motion. adding 
+                interaction brings the visitors in the work, putting them in front of the implications i mentioned before. this also means other things tho: it forces the work to be catered for such interaction, 
+                adding that humanist touch that, personally, i'm not a big fan of. lol we will probably have to talk about this but not for now.</p>
+            <p>this is not the first time i work with water. in year 2 i built a chladni-water-thing that would use a contact speaker in order to create chladni patterns according to some data about the Beaufort Gyre.
+                i decided to maybe revisit that idea as it was quite aesthetically pleasing and easy to experiment with. I want to bring it up a notch tho, by incorporating a grid system.</p>
+
+        </section>
+
+        <section class="grid image">
+
+            <figure>
+                <img src="../images/grid.jpg" alt="grid system">
+            </figure> 
+
+        </section>
+        <section class="section paragraph">
+
+            <p>the grid would work as follows: <br><br>a leap motion sensor or ML image detection will map the hand of a visitor. the position of the hand and some gestures are captured and translated into 
+                signal. the data is then sent to a microcontroller (arduino based), which in turn will send it to the corresponding speaker - the position of the hand will declare which speaker needs to be 
+                activated. the grid of speakers, which is put in contact with the tray containing the algae, will then put some motion in the water through cymatics, and that will prompt the algae to 
+                illuminate accordingly.</p>
+            <p>things to research:
+                <br><br>- are speakers correct, or should i rely on more powerful (and cheaper) vibration motors? or should they be piezo contact speakers?
+                <br><br>- what material should the tray be? is a square grid even correct or does that add unwanted tension which would distort the vibrations (because of the 90 degree angles)?
+                <br><br>- should a leap motion or a webcam with ML be used? the leap motion works well in a low light settings, so in my opinion it seems like the safest route.</p>
+
+        </section>
+
+        <section class="section paragraph">
+
+            <p>i decided to try and envision a way to trigger each speaker in software. this would help me put a clear image to the idea, and with that i can already start thinking about methods of interaction. 
+                before starting my project, i was considering the mechanics of it too. let's say a visitor would put their hand in one place, and then shift it to another place, how is that shifting reflected 
+                exaclty? and also, how do i handle the 'attack', as in, when a visitor puts their hand on the sensor for the first time, should there be a gradual ramp-up in the signal, or a burst? these questions
+                might seem trivial, but given that a certain amount of friction has to be achieved, perhaps short, strong bursts would be more useful than a pleasant smoothening.</p>
+            <p>my software of choice for prototyping ideas is touchdesigner, a node-based environment useful for handling data and allowing communications between other different software and hardware. it also has
+                a 3d engine, which while it's not the best (mostly good for instancing), is good enough to run some simple visual simulations. because both channel and texture data can be put in relation with ease 
+                in the same space, i can already start proposing some methods of how the numerical data should be named, parsed and quantized for a proper experience.</p>
+
+        </section>
+
+        
+            
        
 
     </body>

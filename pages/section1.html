@@ -292,8 +292,8 @@
             <h2>INDEX</h2>
             <ul>
                 <li><a href="../index.html">introduction</a></li>
-                <li><a href="section1.html">section 1: the algae</a>></li>
-                <li>section 2</li>
+                <li><a href="section1.html">dinoflagellates: beauty and its implications</a></li>
+                <li><a href="pages\section2.html">black mould: signs of struggle</a></li>
                 <li>section 3</li>
                 <li>section 4</li>
                 <li>section 5</li>
@@ -590,17 +590,34 @@
 
             <figure>
                 <img src="../images\XtriggerSystem.jpg" alt="how the data is prepped for Xpos triggers">
-                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+                <figcaption>the second iteration will involve creating a concrete array of channels that would simulate a realistic behaviour. in this current experiments i'm using some smoothening options
+                            to make things easier to perceive, but these can be bypassed with ease should i need harsher peaks. to make a very brief test, i'll only work on one axis - at the end of the day, if i 
+                            then want to scale this up to become a grid i can just copy and paste stuff.
+                            <br><br>i start by taking the data regarding the hand's X position, i divide the total tange into 5 triggers, so that each trigger activates when the position reaches a certain value. so 
+                            if my total range is -1 to 1, the first left-most trigger will activate at -0.6, the second at -0.2 and so on. i also needed triggers for descending signal, so i duplicated my first 5 trigger 
+                            CHOPs and set the new ones to activate on descending input. each pair of triggers (the one of the ascending step and the descending step) are then combined into a MATH CHOP. the operation chosen 
+                            combine them is 'length', meaning that the output will change whenever any change occurs in the input.
+                </figcaption>
             </figure>
 
             <figure>
                 <img src="../images\xtrigger_posInstancing.jpg" alt="how ramps are used for creating instancing texture">
-                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+                <figcaption>each of these combined channels are then fed into LEVEL TOPs, modulating the opacity level of 5 1x1px CONSTANT TOPS. a LAYOUT TOP re-frames the CONSTANT TOPs together, putting them
+                            one besides the other, and then the lot is composited over a 5x1px black-to-red RAMP TOP. the use of colours here is important for the instancing scenario because each colour represents
+                            a vector which influences the position. green colour will translate along the Y axis, red on the X, blue on the Z. 
+                            <br><br>the reason why i'm working this way is because each section of the grid would share the same characteristics and behaviours of all the other sections, so instancing sounds 
+                            like the most efficient route. the LEVEL TOP will dictate which section needs raising by adding some green sections onto the RAMP TOP, and because the RAMP presents a float range that 
+                            goes from 0 to 1 on the X axis the sections are displayed in a row of 5 samples (because of the 5 pixels width). 
+                            <br><br>using triggers has pros and cons. once the trigger activates you're always sure that the output will be whatever you want to set, you can also set your attack and decay to
+                            said output, adding some smoothness without affecting performance too much. i would argue that by doing so some of the organic nature of the input will get slightly watered down, in contrast
+                            with maybe a real-time filtering alternative, and then there's TD's elephant in the room: the software works in real time, and to do so its logic is affected by the frame rate. if i want that 
+                            trigger to always activate i need to ensure that there's enough framerate available to allow it to "catch" the right point at the right time. so TRIGGER CHOP to me feels unflexible in this 
+                            scenario.</figcaption>
             </figure>
 
             <figure>
                 <img src="../images\Xtrigger_render.jpg" alt="render of how the trigger system would work">
-                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+                <figcaption>the rendering network is super simple, i was just aiming for clarity.</figcaption>
             </figure>
 
         </section>
@@ -609,23 +626,46 @@
 
             <figure>
                 <img src="../images\crop_system.jpg" alt="crop system for creating XZ texture for instancing">
-                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+                <figcaption>the third iteration wants to take into consideration the arduinos as well. i would be incredibly happy to have a 5x5 grid of speakers, it will probalby require a lot of money to
+                            make, and multiple arduinos, but i might have some ideas about realizing my own amplifiers, and that could cut the cost quite a bit. i decided to face the method in a very simple way,
+                            and this turned out to be the most effective as well.
+                            <br><br>similarly as before, the goal is to use some colour coordinates in order to display and move some instances around. one difference from the previous approach is that here i'm 
+                            working the opposite way. i start by combining a 5x5p res 1px radius CIRCLE TOP and a 5x5px res 0 opacity CONSTANT TOP. the position of the single pixel circle is modulated by the hand's X 
+                            Y positions, which are now quantized to go from 0 to 1. the composition is then split into 25 1x1px sections using CROP TOPs (haha). 
+                            <br><br>this time i'm also using the distance between the hand and the leapmotion, which is represented as Y position. hence the radius is modulated by this channel, and the lower 
+                            towards the sensor is, the bigger the circle will become, adding a further level of interaction.
+                </figcaption>
             </figure>
 
             <figure>
                 <img src="../images\channel_data.jpg" alt="how the channel data could be prepared for the arduino">
-                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+                <figcaption>each section is then converted into channel data. this is the part where i think about the arduino. each channel is organised and named for ease of readability. it does look very messy,
+                            but it seems like the most obvious way to do this - eventually, these channels will have to be split one way or another.
+                </figcaption>
             </figure>
 
             <figure>
                 <img src="../images\compositing.jpg" alt="how ramps are composed with the leapmotion image">
-                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+                <figcaption>similarly as before, RAMP TOPs are used to define the grid's position in space, but this time it's 3d space, so the RAMPs have to be set in a specific way. each of them has to be 5x5px, 
+                            the red one can maintain the same direction as before, but now a flipped green ramp is used to define the Y coordinates as well (it should've been blue, and I should've used a green circle instead
+                            to be true to 3D space rules, but here i just flipped the camera and went with it anyways, there's no real difference), so that the grid is now effectively 3d. the circle is colured blue,
+                            and composited over the RAMPs' texture, creating the final instancing texture.
+                </figcaption>
             </figure>
 
             <figure>
                 <img src="../images\XYZ_gridSystem.jpg" alt="visualizer or XZ trigger system">
-                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+                <figcaption>again, the rendering is quite simple, just a series of flat boxes that raise up and down according to my hand's position. overall, this technique only requires fine-tuning according to 
+                            physical conditions - how far is a visitor's hand from it on average? what's the max height they can go? what's the minimum? how to handle the cone-shaped sensor range in order to make
+                            something that feels as responsive and smooth as possible?
+                </figcaption>
             </figure>
+
+        </section>
+
+        <section>
+
+            <h2>considerations</h2>
 
         </section>
 
@@ -638,6 +678,75 @@
                 </iframe>
             </div>
         
+        </section>
+
+        <section class="section paragraph">
+
+                <p>a short video depicting how the interaction would be set, showing my different HUDs. i believe the 3rd method is the best, compared to the second. it does take a little bit more
+                    processing power because i'm using some filtering, but i could, for example, have further control over the output's behaviour just by working on the textures: adding feedback could induce a trailing
+                    effect on the signal, using some displacement could induce some ripples. there are many aesthetic possibilities, but i personally find everything quite difficult to justify. i do understand my 
+                    tutors when they ask me "yes but why?", because it's true. of course if this would work well it could look great and be something that could go in the science centre and make a nice educational 
+                    experience with some hints of ethics, but is that what i want?
+                </p>
+
+                <p>i've read an interesting book by Amitav Gosh named <i>The Great Derangement: Climate Change and the Unthinkable</i> (2016). the book tackles important and well known issues in climate change
+                    and policies related to it, pointing out an inadequate system that will never be fully able to address the environmental issue properly. the book is quite an easy read, Gosh is no man of science but 
+                    manages to move around different POVs, topics and disciplines effortlessly. one critique that the author moves which i personally find the most important is the one agains't culture itself, explaining
+                    how there's no real cultural narrative built around climate change. he mentions how, in contrast the <i>Laudato Si</i> published by Pope Francis in 2015 is the actual strongest document in favour of climate 
+                    change thanks to its religious connotations. this is something that really resonates with me, ever since i started moving my interests towards science and other STEAM disciplines i started 
+                    questioning 'the point'.
+                </p> 
+
+                <p>i always considered my ultimate goal to be 'to make things perceivable' (though fundamentally i don't believe in a precise 'goal'), and somewhat i think that stays true, but perhaps it's 
+                    not enough? or not well defined? working around science has always bees a way to express collabotative-ness, offering a sort of 'translation' in neater pills for others, focusing around readability.
+                    i do still believe that as valid but at the moment i'm missing that element of narrative. the piece so far is resulting in something too 'real', if that makes sense?
+                </p>
+
+                <p>too real not the right wording, the user's interaction is very basic, the whole work is 'when person does this, do this'. i'm not saying that something simple is bad, but this feels 
+                    mono-dimensional. in 2017 a river called Whanganui became a person in New Zealand, and the natives residing around its course became their descendants. attributing a religious connotation through the 
+                    Te Awa Tupua Act was beneficial in keeping the territory around the river safe. i need to make my river. the work needs to be a organisms of its own.
+                </p>
+
+                <p>it's important to mention how these thoughts are being influence by my current dissertation readings and interests. i began the year considering the idea of perhaps having my work proceed
+                    alongside my dissertation, and embed concepts within one another. i feel like that's quite hard just because of timing, the dissertation needs to be handed so much earlier the the piece's
+                    completion, and i fear of having studio work's related concepts left un-resolved in my dissertation. but it can be done in a one-way-only style. currently, the idea for my diss. is to
+                    describe how the Western Capitalist Sovereignty excercises control over life and death in order to affirm itself, and oppose theories of intersectional feminism and interdependency to describe
+                    alternative ideas of living. it's a difficult topic, i can't lie about that, and its dark nature is definetely not helping my ongoing depression, but it's something that i find close to my heart
+                    for a variety of reasons.
+                </p>
+
+                <p>to put it briefly, the large scope is face using concrete issues, mainly the environmental and the socio political issues. there are broken down into more palpable matters: harmful algal blooms
+                    (HABs) and housing (with a focus on UK housing). the 2 matters would then be brought together by presenting the issue of climate migration. the goal here, is to determine how capitalism, and 
+                    by consequences those in power, acts as a set of strict deterministic rules, aimed at resource exploitation and energy displacement. what do i mean? in order to be, capitalism needs to makes
+                    space for itself, destroying land, evicting people who can't pay rent, levelling cities like what Israel is doing in Gaza. that is the energy displacement part - Sovereignty needs to define 
+                    limits where something can or cannot exist so that it can act upon it. it does so by means of colonialism, military force, but also communication: the 'death zone' is pushed far away, at 
+                    the outskirts of the city, or in a different continent from which the signal arrives at times slowly, hidden and crackling, at times overflowing and overwhelming, inducing a repetitive pattern
+                    aimed at numbing the mind.
+                </p> 
+                
+                <p>my dissertation is mostly influenced by <i>Frames of War</i> by Judith Butler, and although it's a very difficult read for someone who is not very experienced with philosophy like myself, offers some
+                   important points around these notions. another book that i'm currently finding very useful is a book by Frantz Fanon, <i>The Wretched of the Earth</i> (1961). the book goes over the grim 
+                    practices of dehumanization adopted by colonialists on individual and nations and it also makes an interesting point about the 'geometrical' forces applied in confining, displacing and distancing
+                    the vulnerable.
+                </p>
+
+                <p>with these considerations in mind, i think i would like to abandon the idea of an interaction and focus on something more abstract. i'm fascinated (so to speak) by the idea of a system that needs 
+                    to relentlessly make space for itself, in a cyclical motion of pushing and pulling, slowly deteriorating itself. the issue of housing in my dissertation has a strong symbol, which is black mould.
+                    black mould is a bioindicator of deterioration, and known to be toxic to people. many black mould cases arised in the UK's social housing, indicating a lack of maintainance from the various 
+                    housing associations, sometimes leading to deaths. what's important here is not the black mould per se, but what it symbolizes: the same deterministic approach described by Fanon and then Butler, 
+                    issues are pushed away, these huge block of flats built at the periphery are left unchecked, hidden from the public eye. the nuclear family becomes more like an enclosure, where each nucleus 
+                    handles and maintains its own issues - if they are capable to do so. a society built around systems of powers can't afford to stop and care for its vulnerabilities, hence the systems aimed at 
+                    supporting the vulnerable are often lackluster and incredibly difficult to obtain.
+                </p>
+
+                <p>to get back to my initial argument: what does this piece want to be? i'm thinking about credibility, the issue of trust in science, which is also perfectly applicable to the arts. our communities
+                    are surprisingly similar. most of us do art for us the same way scientists talk in between themselves. this created a climate of distrust, the inability of people in the arts and in the sciences
+                    to communicate with the 'normies' is an obstacle to the progress of these disciplines themselves. if the aim of art is, as i personally believe, to ask a question, what am i asking by giving the 
+                    work in the viewer's hands? that means deforming and re-designing something that, in my opinion, should be left as is. even if one 'normie' was interested in science, accessing papers in incredibly 
+                    tedious and usually paywalled by distributors who don't pay those who actually write them. the question should be: am i making this because the fact that a person will have to interact with it means
+                    that the piece needs this certain adaptation? i believe yes, if i keep going with the interaction idea. and i don't thinki like that.
+                </p>
+                
         </section>
 
         

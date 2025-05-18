@@ -134,7 +134,65 @@
             line-height: 1.4;
             }
 
-            .containerVid1 {
+            .section.images5 {
+            display: flex;
+            flex-direction: row;
+            gap: 10px; 
+            padding: 0px 0 0 0;
+            font-family: monospace;
+            flex-wrap: wrap; 
+            }
+
+            .section.images5 figure {
+            width: 620px; 
+            margin: 0;
+            text-align: center; 
+            }
+
+            .section.images5 figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            }
+
+            .section.images5 figcaption {
+            margin-top: 8px;
+            word-break: break-word;  
+            white-space: normal;     
+            line-height: 1.4;
+            }
+
+            .section.images6 {
+            display: flex;
+            flex-direction: row;
+            gap: 10px; 
+            padding: 0px 0 0 0;
+            font-family: monospace;
+            flex-wrap: wrap; 
+            }
+
+            .section.images6 figure {
+            width: 800px; 
+            margin: 0;
+            text-align: center; 
+            }
+
+            .section.images6 figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            }
+
+            .section.images6 figcaption {
+            margin-top: 8px;
+            word-break: break-word;  
+            white-space: normal;     
+            line-height: 1.4;
+            }
+
+            .containerVidAyr {
 
             position: relative;
             padding-bottom: 28.125%;
@@ -145,13 +203,35 @@
             
             }
 
-            .containerVid1 iframe {
+            .containerVidAyr iframe {
             position: absolute;
             top: 0;
             left: o;
             width: 50%;
             height: 100%;
+           
             
+            }
+
+            .containerVidSensor {
+
+            position: relative;
+            padding-bottom: 28.125%;
+            padding-right: 17.7%;
+             
+           
+           
+            height: 0;
+            
+            }
+
+            .containerVidSensor iframe {
+            position: absolute;
+            top: 0;
+            left: o;
+            width: 50%;
+            height: 100%;
+            margin-left: 100px;
             }
 
             .grid.image figure img {
@@ -162,8 +242,38 @@
 
             }
 
+            .algaeGif figure img {
 
-        
+                width: 500px;
+                margin-top: 100px;
+                margin-left: 100px;
+
+            }
+
+      
+
+            .dataParsing figure img {
+
+                display: block;
+                width: 1300px;
+                margin-top: 100px;
+                margin-left: 50px;
+                
+                
+            }
+
+            .sphereGrid figure img {
+
+                display: block;
+                width: 1300px;
+                margin-top: 100px;
+                margin-left: 50px;
+                
+                
+            }
+
+            
+
 
             
             
@@ -304,7 +414,7 @@
 
         <section>
             
-            <div class="containerVid1">
+            <div class="containerVidAyr">
                 <iframe width=100% height=100% src="https://www.youtube.com/embed/EYWOF-s6huA?si=yesJWUDRdd8qbwEW" 
                         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>                      
@@ -386,6 +496,18 @@
                 to further emphasize the notion of a present, living, being. i don't know if i'm clear enough, the algae needs to make itself present in the work, and by doing so that's where the celebration happens, the 
                 cathartic action of (in a way) screaming out of pain to describe the event of exploitation.<br>i'm aware that this is somewhat cruel, and i'm taking as many steps as possible to ensure that the 
                 algae are at least living in favorable conditions.</p>
+            
+        </section>
+
+        <section class="algaeGif">
+
+            <figure>
+                <img src="../images\algaeGif.gif" alt="3 weeks in">
+            </figure> 
+
+        </section>
+
+        <section>
 
             <h2>triggering bioluminescence on demand</h2>
 
@@ -430,10 +552,96 @@
 
         </section>
 
+        <section class="dataParsing">
+            
+            <figure>
+                <img src="../images\dataParsing.jpg" alt="how the leap motion data is parsed">
+            </figure>
+
+        </section>
+
+         <section class="section paragraph">
+
+            <p>the above image shows how i parse the data coming from the leap motion (it wasn't connected when i took this screenshot). the leapmotion sends a floating signal that ranges between -200 and 200, 
+                although there need to be an excessive distance from the sensor to reach those values. for this prototype i'll scale down the range to be -100 to 100. i'll quantize it to be from -1 to 1 using 
+                a MATH CHOP, and use a LIMIT CHOP to make sure it doesn't exceed that range. the channels for each vector (X,Y,Z), the grabbing gesture and the signal indicating that the hand is detected are all 
+                merged together for house-keeping purposes. this gives me a clear node to reference if i need all those channels.
+            </p>
+
+         </section>
+
+         <section class="sphereGrid">
+
+            <figure>
+                <img src="../images\sphereInGrid.jpg" alt="XZ motion render">
+            </figure>
+
+        </section>
+
+        <section class="section paragraph">
+
+            <p>the first network is quite simple, it was useful in order to adjust my ranges in the data-parsing section, but at the end of the day it just consists of a sphere translating in the X and Z axis 
+                according to the channels of the leapmotion. by starting from this, i can already decide on grid dimensions in the 3d space too (by following the UV coordinates of the grid and the sphere's position), 
+                which will be useful later in a instancing scenario.</p>
+
+        </section>
+
+        <section class="section images5">
+
+            <figure>
+                <img src="../images\XtriggerSystem.jpg" alt="how the data is prepped for Xpos triggers">
+                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images\xtrigger_posInstancing.jpg" alt="how ramps are used for creating instancing texture">
+                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images\Xtrigger_render.jpg" alt="render of how the trigger system would work">
+                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+            </figure>
+
+        </section>
+
+        <section class="section images6">
+
+            <figure>
+                <img src="../images\crop_system.jpg" alt="crop system for creating XZ texture for instancing">
+                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images\channel_data.jpg" alt="how the channel data could be prepared for the arduino">
+                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images\compositing.jpg" alt="how ramps are composed with the leapmotion image">
+                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images\XYZ_gridSystem.jpg" alt="visualizer or XZ trigger system">
+                <figcaption>The vial containing some pre-mixed medium. I will experiment with both this and with making my own, to see the differences.</figcaption>
+            </figure>
+
+        </section>
+
+        <section>
+            
+            <div class="containerVidSensor">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/KiPIQzOer0o?si=7HMXEmsZK_ZF7Cwk" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>                   
+                </iframe>
+            </div>
+        
+        </section>
+
         
             
-       
-
-    </body>
+          </body>
 
 </html>

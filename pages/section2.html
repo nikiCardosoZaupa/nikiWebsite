@@ -19,6 +19,27 @@
 
             }
 
+            .containerVidMould {
+
+            position: relative;
+            padding-bottom: 28.125%;
+            padding-right: 17.7%;
+             
+           
+           
+            height: 0;
+            
+            }
+
+            .containerVidMould iframe {
+            position: absolute;
+            top: 0;
+            left: o;
+            width: 50%;
+            height: 100%;
+            margin-left: 100px;
+            }
+
         </style>
 
     </head>
@@ -41,6 +62,40 @@
             </ul>
         </section>
 
+        <section class="section paragraph">
+            <h2>visualising mould</h2>
+            <p>as mentioned above, I won’t be working with real mould because it would be too risky and unpredictable. i opted for visualising mould as a 2d generative image. I’m looking into voronoi 
+                patterns, and how they are often used in simulation to represent mould or fungal propagation. this week i’m very ill because of a flu so i’ll take the opportunity to recreate a voronoi 
+                based video that shows some mould growth. voronoi patterns are used in a range of different applications, from science to engineering, to also linguistics. often they are represented as a 
+                diagram where the main parameters are the distance between the seeds and where and how many cells are touching. these tesselations consist of a seed, a single point of origin, and a cell, 
+                which encapsulates the seed. normally some parameters would be used to dictate the dimensions of the cells, and the disposition of the seeds would eventually lead the cells to touch, thus 
+                forming these patterns. if we are seeing the seeds as mould inoculations in a petri dish, the cells would be the consequent mould growth around the seeds: this is the main reason why i’m 
+                looking into voronoi patterns.
+                my version of the voronoi/mould growth is shown below:
+            </p>
+        
+        </section>
+
+        <section>
+            
+            <div class="containerVidMould">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XmZ0tupccrw?si=JsPps-nH5wmHYyaR" title="YouTube video player" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen></iframe>
+            </div>
+        
+        </section>
+
+        <section class="section paragraph">
+  
+            <p>of course this is not a simulation, just an arrangement of specific textures, displacement and some normal mapping in a feedback loop. i also noticed that it’s not really exactly voronoi 
+                patterns, but ironically that ends up looking more realistic and mould-like. the current TD network can represent a localised growth, but 1) the input is a full-screen array of randomly 
+                coloured pixels – meaning that the input is non-specific as of now, and the weight of each seed is equal and random at the same time and 2) the system reaches stability too quickly. perhaps 
+                the displacement map is too high, or it could be something to do with the levels. it needs further work. I would like the visualisation to have a relation with both the input (where are the 
+                glowing algae localised, and how bright are they?) and the motion of the lung itself (breathe in breathe out, grow fast, grow slow, or even reverse growth.
+            </p>
+        
+        </section>
 
     </body>
 

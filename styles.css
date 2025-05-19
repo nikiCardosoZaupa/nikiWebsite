@@ -1,5 +1,5 @@
 body {
-    background: rgb(110, 125, 157);
+    background: rgb(147, 160, 186);
     
     
 
@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 header {
-    background: rgb(62, 77, 109);
+    background: rgb(87, 102, 136);
     font-family: Helvetica, monospace;
     font-size: large;
     color: rgb(9, 9, 38);
@@ -17,7 +17,7 @@ header {
 
 p {
     font-family: monospace;
-    font-size:large;
+    font-size:x-large;
     color: rgb(0, 0, 0);
     padding: 30px 50px 0px 50px;
 }
@@ -31,10 +31,11 @@ h2 {
 
 figcaption {
   word-break: break-word;  
-  white-space: normal;
+  white-space: medium;
+  font-size:large;
   line-height: 1.4;
   margin-top: 5px;
-  text-align: center;   
+  text-align: left;   
 }
 
 
